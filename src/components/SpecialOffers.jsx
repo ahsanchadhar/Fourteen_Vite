@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import React from "react";
+import { Button } from "@/components/ui/button"; // Keep this if you're using a UI library
 
 const specialOffers = [
   {
@@ -25,7 +25,7 @@ const specialOffers = [
   },
 ];
 
-export function SpecialOffers() {
+const SpecialOffers = () => {
   return (
     <section className="bg-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -38,12 +38,11 @@ export function SpecialOffers() {
               key={offer.id}
               className="bg-card text-card-foreground rounded-lg shadow-md overflow-hidden"
             >
-              <div className="relative h-48">
-                <Image
+              <div className="h-48 w-full overflow-hidden">
+                <img
                   src={offer.image}
                   alt={offer.title}
-                  layout="fill"
-                  objectFit="cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-4">
@@ -59,4 +58,6 @@ export function SpecialOffers() {
       </div>
     </section>
   );
-}
+};
+
+export default SpecialOffers;
