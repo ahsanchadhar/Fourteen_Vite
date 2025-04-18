@@ -8,6 +8,7 @@ import { ROUTES } from "../constants/routes";
 
 import Home from "./Home";
 import Layout from "@/components/Layout";
+import About from "./About";
 
 
 export function Router() {
@@ -16,6 +17,7 @@ export function Router() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+           <Route path={ROUTES.about} element={<About />} />
           
             {/* <Route path={ROUTES.configurations} element={<Configurations />} />
             <Route path={ROUTES.projects} element={<Projects />} />
