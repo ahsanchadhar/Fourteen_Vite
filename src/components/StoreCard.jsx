@@ -1,4 +1,4 @@
-import Image from "next/image";
+import React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,43 +11,40 @@ import {
   Mail,
 } from "lucide-react";
 
-interface StoreCardProps {
-  store: {
-    id: string;
-    name: string;
-    category: string;
-    shortDescription: string;
-    rating: number;
-    reviews: number;
-    products: number;
-    address: string;
-    phone: string;
-    email: string;
-    coverImageUrl: string;
-    profileImageUrl: string;
-  };
-}
+// Props:
+// store: {
+//   id: string;
+//   name: string;
+//   category: string;
+//   shortDescription: string;
+//   rating: number;
+//   reviews: number;
+//   products: number;
+//   address: string;
+//   phone: string;
+//   email: string;
+//   coverImageUrl: string;
+//   profileImageUrl: string;
+// }
 
-export function StoreCard({ store }: StoreCardProps) {
+export function StoreCard({ store }) {
   return (
     <Card className="w-full max-w-md overflow-hidden">
       <div className="relative h-48">
-        <Image
+        <img
           src={store.coverImageUrl}
           alt={`${store.name} cover`}
-          layout="fill"
-          objectFit="cover"
+          className="w-full h-full object-cover"
         />
       </div>
+
       <CardContent className="p-6">
         <div className="flex items-center mb-4">
           <div className="relative w-20 h-20 mr-4">
-            <Image
+            <img
               src={store.profileImageUrl}
               alt={`${store.name} profile`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-full border-4 border-background"
+              className="rounded-full border-4 border-background w-20 h-20 object-cover"
             />
           </div>
           <div>
@@ -57,9 +54,11 @@ export function StoreCard({ store }: StoreCardProps) {
             </Badge>
           </div>
         </div>
+
         <p className="text-sm text-muted-foreground mb-6 line-clamp-2">
           {store.shortDescription}
         </p>
+
         <div className="grid grid-cols-3 gap-4 p-4 border rounded-lg mb-6">
           <div className="text-center">
             <div className="flex items-center justify-center mb-1">
@@ -83,6 +82,7 @@ export function StoreCard({ store }: StoreCardProps) {
             <p className="text-xs text-muted-foreground">Products</p>
           </div>
         </div>
+
         <div className="space-y-2 mb-6">
           <div className="flex items-center text-sm">
             <MapPin className="mr-2 text-muted-foreground h-4 w-4" />
@@ -98,6 +98,7 @@ export function StoreCard({ store }: StoreCardProps) {
           </div>
         </div>
       </CardContent>
+
       <CardFooter>
         <Button className="w-full">Visit Store</Button>
       </CardFooter>

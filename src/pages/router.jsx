@@ -9,6 +9,9 @@ import { ROUTES } from "../constants/routes";
 import Home from "./Home";
 import Layout from "@/components/Layout";
 import About from "./About";
+import Stores from "./Stores";
+
+
 
 
 export function Router() {
@@ -17,7 +20,9 @@ export function Router() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-           <Route path={ROUTES.about} element={<About />} />
+           <Route path={ROUTES.about} element={<About/>} />
+            <Route path={ROUTES.stores} element={<Stores />} />
+            
           
             {/* <Route path={ROUTES.configurations} element={<Configurations />} />
             <Route path={ROUTES.projects} element={<Projects />} />
