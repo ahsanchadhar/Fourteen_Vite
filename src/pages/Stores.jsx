@@ -16,14 +16,9 @@ const stores = [
     id: "1",
     name: "TechGadgets",
     category: "Electronics",
-    shortDescription:
-      "Your one-stop shop for all the latest tech gadgets and accessories.",
     rating: 4.7,
     reviews: 1283,
     products: 500,
-    address: "123 Tech Street, Gadget City, TC 12345",
-    phone: "+1 (555) 123-4567",
-    email: "info@techgadgets.com",
     coverImageUrl:
       "https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     profileImageUrl:
@@ -33,14 +28,9 @@ const stores = [
     id: "2",
     name: "FashionForward",
     category: "Fashion",
-    shortDescription:
-      "Trendy and stylish clothing for all occasions. Stay ahead in fashion.",
     rating: 4.5,
     reviews: 952,
     products: 1200,
-    address: "456 Style Avenue, Fashion District, FD 67890",
-    phone: "+1 (555) 987-6543",
-    email: "hello@fashionforward.com",
     coverImageUrl:
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     profileImageUrl:
@@ -50,14 +40,9 @@ const stores = [
     id: "3",
     name: "HomeEssentials",
     category: "Home & Living",
-    shortDescription:
-      "Everything you need to make your house a home. Quality home essentials.",
     rating: 4.8,
     reviews: 1567,
     products: 800,
-    address: "789 Comfort Lane, Homeville, HV 54321",
-    phone: "+1 (555) 246-8135",
-    email: "support@homeessentials.com",
     coverImageUrl:
       "https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     profileImageUrl:
@@ -67,14 +52,9 @@ const stores = [
     id: "4",
     name: "SportsWorld",
     category: "Sports & Outdoors",
-    shortDescription:
-      "Gear up for your favorite sports and outdoor activities. Quality equipment for all.",
     rating: 4.6,
     reviews: 789,
     products: 600,
-    address: "321 Athlete Road, Sportsville, SV 13579",
-    phone: "+1 (555) 369-2580",
-    email: "info@sportsworld.com",
     coverImageUrl:
       "https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     profileImageUrl:
@@ -87,35 +67,35 @@ function StoresPage() {
   const [sortBy, setSortBy] = useState("");
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold mb-8 text-center lg:text-left">
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-6 md:py-12">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-center lg:text-left">
         Our Stores
       </h1>
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
         {/* Sidebar for Filters */}
         <aside className="lg:w-64 hidden lg:block">
           <FiltersSideMenu />
         </aside>
 
         {/* Mobile Filter Sheet */}
-        <div className="lg:hidden mb-4">
+        <div className="lg:hidden mb-2 md:mb-4">
           <FilterSheet />
         </div>
 
         {/* Main Content */}
         <div className="flex-1">
           {/* Search and Sort */}
-          <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
+          <div className="flex flex-col md:flex-row justify-between mb-4 md:mb-8 gap-2 md:gap-4">
             <Input
               type="text"
               placeholder="Search stores..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1"
+              className="flex-1 text-sm"
             />
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-full md:w-[180px]">
+              <SelectTrigger className="w-full md:w-[180px] text-sm">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -128,7 +108,7 @@ function StoresPage() {
           </div>
 
           {/* Store Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6">
             {stores.map((store) => (
               <StoreCard key={store.id} store={store} />
             ))}

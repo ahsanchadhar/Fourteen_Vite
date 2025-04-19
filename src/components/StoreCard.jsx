@@ -6,101 +6,75 @@ import {
   Star,
   MessageSquare,
   ShoppingBag,
-  MapPin,
-  Phone,
-  Mail,
 } from "lucide-react";
-
-// Props:
-// store: {
-//   id: string;
-//   name: string;
-//   category: string;
-//   shortDescription: string;
-//   rating: number;
-//   reviews: number;
-//   products: number;
-//   address: string;
-//   phone: string;
-//   email: string;
-//   coverImageUrl: string;
-//   profileImageUrl: string;
-// }
 
 export function StoreCard({ store }) {
   return (
-    <Card className="w-full max-w-md overflow-hidden">
-      <div className="relative h-48">
+    <Card className="w-full overflow-hidden shadow-md rounded-md md:rounded-2xl">
+      {/* Cover Image */}
+      <div className="relative h-20 md:h-36">
         <img
           src={store.coverImageUrl}
           alt={`${store.name} cover`}
           className="w-full h-full object-cover"
         />
+        {/* Profile Image */}
+        <div className="absolute -bottom-5 md:-bottom-10 left-2 md:left-4">
+          <img
+            src={store.profileImageUrl}
+            alt={`${store.name} profile`}
+            className="w-10 h-10 md:w-20 md:h-20 rounded-full border-2 md:border-4 border-white object-cover shadow-sm md:shadow-md"
+          />
+        </div>
       </div>
 
-      <CardContent className="p-6">
-        <div className="flex items-center mb-4">
-          <div className="relative w-20 h-20 mr-4">
-            <img
-              src={store.profileImageUrl}
-              alt={`${store.name} profile`}
-              className="rounded-full border-4 border-background w-20 h-20 object-cover"
-            />
-          </div>
+      {/* Store Info */}
+      <CardContent className="pt-7 md:pt-12 px-2 md:px-6 pb-2 md:pb-4">
+        <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-2xl font-bold">{store.name}</h2>
-            <Badge variant="secondary" className="mt-1">
+            <h2 className="text-[11px] md:text-xl font-semibold leading-tight">
+              {store.name}
+            </h2>
+            <Badge
+              variant="secondary"
+              className="mt-0.5 text-[8px] md:text-sm px-1 py-0.5"
+            >
               {store.category}
             </Badge>
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-6 line-clamp-2">
-          {store.shortDescription}
-        </p>
-
-        <div className="grid grid-cols-3 gap-4 p-4 border rounded-lg mb-6">
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-2 mt-3 md:mt-6 bg-muted p-2 md:p-3 rounded-md md:rounded-lg">
           <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              <Star className="text-yellow-400 mr-1 h-4 w-4" />
+            <div className="flex items-center justify-center mb-0.5 text-[9px] md:text-sm">
+              <Star className="text-yellow-400 mr-1 h-2.5 w-2.5 md:h-4 md:w-4" />
               <span className="font-semibold">{store.rating}</span>
             </div>
-            <p className="text-xs text-muted-foreground">Rating</p>
+            <p className="text-[8px] md:text-xs text-muted-foreground">Rating</p>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              <MessageSquare className="text-blue-500 mr-1 h-4 w-4" />
+            <div className="flex items-center justify-center mb-0.5 text-[9px] md:text-sm">
+              <MessageSquare className="text-blue-500 mr-1 h-2.5 w-2.5 md:h-4 md:w-4" />
               <span className="font-semibold">{store.reviews}</span>
             </div>
-            <p className="text-xs text-muted-foreground">Reviews</p>
+            <p className="text-[8px] md:text-xs text-muted-foreground">Reviews</p>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              <ShoppingBag className="text-green-500 mr-1 h-4 w-4" />
+            <div className="flex items-center justify-center mb-0.5 text-[9px] md:text-sm">
+              <ShoppingBag className="text-green-500 mr-1 h-2.5 w-2.5 md:h-4 md:w-4" />
               <span className="font-semibold">{store.products}</span>
             </div>
-            <p className="text-xs text-muted-foreground">Products</p>
-          </div>
-        </div>
-
-        <div className="space-y-2 mb-6">
-          <div className="flex items-center text-sm">
-            <MapPin className="mr-2 text-muted-foreground h-4 w-4" />
-            <span className="text-muted-foreground">{store.address}</span>
-          </div>
-          <div className="flex items-center text-sm">
-            <Phone className="mr-2 text-muted-foreground h-4 w-4" />
-            <span className="text-muted-foreground">{store.phone}</span>
-          </div>
-          <div className="flex items-center text-sm">
-            <Mail className="mr-2 text-muted-foreground h-4 w-4" />
-            <span className="text-muted-foreground">{store.email}</span>
+            <p className="text-[8px] md:text-xs text-muted-foreground">Products</p>
           </div>
         </div>
       </CardContent>
 
-      <CardFooter>
-        <Button className="w-full">Visit Store</Button>
+      {/* Button */}
+      <CardFooter className="px-2 md:px-6 pb-3 md:pb-6 pt-1">
+        <Button className="w-full text-[10px] md:text-sm h-7 md:h-10">
+          Visit Store
+        </Button>
       </CardFooter>
     </Card>
   );

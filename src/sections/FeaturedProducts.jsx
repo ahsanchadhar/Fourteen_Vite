@@ -74,7 +74,7 @@ const FeaturedProducts = () => {
           View All <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-8">
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
