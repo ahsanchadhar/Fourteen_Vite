@@ -56,10 +56,10 @@ export function Hero() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-8">
-            <h2 className="text-4xl font-bold mb-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center">
               {item.title}
             </h2>
-            <p className="text-xl mb-8 text-center">{item.description}</p>
+            <p className="text-md md:text-xl mb-8 text-center">{item.description}</p>
             <Button variant="secondary" size="lg">
               {item.ctaText}
             </Button>
@@ -67,23 +67,19 @@ export function Hero() {
         </div>
       ))}
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-gray-800 rounded-full"
+      <button
         onClick={handlePrevClick}
+        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-gray-800 rounded-full shadow-md p-1 sm:p-2 md:p-3"
       >
-        <ChevronLeft className="h-6 w-6" />
-      </Button>
+        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+      </button>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white text-gray-800 rounded-full"
+      <button
         onClick={handleNextClick}
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-gray-800 rounded-full shadow-md p-1 sm:p-2 md:p-3"
       >
-        <ChevronRight className="h-6 w-6" />
-      </Button>
+        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+      </button>
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {items.map((_, index) => (
