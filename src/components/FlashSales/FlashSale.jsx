@@ -52,7 +52,7 @@ export function FlashSale() {
     <section className="bg-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1   gap-8">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <FlashSaleTimer
               endTime={new Date().getTime() + 24 * 60 * 60 * 1000}
             />
