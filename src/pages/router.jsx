@@ -11,6 +11,7 @@ import About from "./About";
 import Stores from "./Stores";
 
 import SingleProduct from "./SingleProduct";
+import Products from "./Products";
 
 export function Router() {
   return (
@@ -19,8 +20,8 @@ export function Router() {
         <Route index element={<Home />} />
         <Route path={ROUTES.about} element={<About />} />
         <Route path={ROUTES.stores} element={<Stores />} />
-
-        <Route path={ROUTES.SingleProduct} element={<SingleProduct />} />
+        <Route path={ROUTES.products} element={<Products />} />
+        <Route path={ROUTES.pingleProduct} element={<SingleProduct />} />
       </Route>
     </Routes>
   );
