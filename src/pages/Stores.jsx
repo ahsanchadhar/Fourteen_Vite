@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { FilterSheet } from "@/components/FilterSheet";
 
 const stores = [
   {
@@ -81,31 +82,40 @@ const stores = [
   },
 ];
 
-function StoresPage() {
+function Stores() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("");
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold mb-8">Our Stores</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center lg:text-left">
+        Our Stores
+      </h1>
 
       <div className="flex flex-col lg:flex-row gap-8">
-        <aside className="lg:w-64">
+        {/* Sidebar for Filters */}
+        <aside className="lg:w-64 hidden lg:block">
           <FiltersSideMenu />
         </aside>
 
+        {/* Mobile Filter Sheet */}
+        <div className="lg:hidden mb-4">
+          <FilterSheet />
+        </div>
+
+        {/* Main Content */}
         <div className="flex-1">
-          <div className="flex flex-col md:flex-row justify-between mb-8">
-            <div className="flex-1 mb-4 md:mb-0 md:mr-4">
-              <Input
-                type="text"
-                placeholder="Search stores..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+          {/* Search and Sort */}
+          <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
+            <Input
+              type="text"
+              placeholder="Search stores..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1"
+            />
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-full md:w-[180px]">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -117,7 +127,8 @@ function StoresPage() {
             </Select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Store Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {stores.map((store) => (
               <StoreCard key={store.id} store={store} />
             ))}
