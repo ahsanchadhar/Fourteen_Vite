@@ -82,7 +82,7 @@ const stores = [
   },
 ];
 
-function Stores() {
+function StoresPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("");
 
