@@ -49,13 +49,14 @@ const ProductCard = ({
         </h3>
 
         <div className="flex items-baseline mb-4">
-          <span className="text-lg sm:text-xl font-bold text-primary mr-2">
-            RS. {discount_price.toLocaleString()}
-          </span>
-          <span className="text-xs sm:text-sm font-medium line-through text-muted-foreground">
-            RS. {price.toLocaleString()}
-          </span>
-        </div>
+  <span className="text-lg sm:text-xl font-bold text-primary mr-2">
+    RS. {discount_price?.toLocaleString?.() ?? "0"}
+  </span>
+  <span className="text-xs sm:text-sm font-medium line-through text-muted-foreground">
+    RS. {price?.toLocaleString?.() ?? "0"}
+  </span>
+</div>
+
       </div>
       <div className="px-4 pb-4 mt-auto">
         <div className="flex justify-between gap-2">
