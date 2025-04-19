@@ -2,6 +2,8 @@
 
 
 import Categories from "@/components/categories";
+import { FeaturedCategories } from "@/components/FeaturedCategories/FeaturedCategories";
+import { FlashSale } from "@/components/FlashSales/FlashSale";
 import SpecialOffers from "@/components/SpecialOffers";
 import FeaturedProducts from "@/sections/FeaturedProducts";
 import { Hero } from "@/sections/Hero";
@@ -24,6 +26,12 @@ const Home = () => {
 
       {/* Special Offers Section */}
       <SpecialOffers/>
+
+      {/* Flash Sale Section */}
+      <FlashSale/>
+
+      {/* Featured Categories Section */}
+      <FeaturedCategories/>
     </div>
   );
 }

@@ -11,7 +11,7 @@ const ProductCard = ({
   discount_percentage,
 }) => {
   return (
-    <div className="bg-card text-card-foreground shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1 flex flex-col h-full">
+    <div className="bg-card text-card-foreground shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl transform flex flex-col h-full">
       <Link to={`/products/${id}`} className="relative cursor-pointer">
         <img
           src={"/camera.png"} // Replace with your actual image path or dynamic data
