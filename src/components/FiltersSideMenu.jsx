@@ -10,14 +10,15 @@ const categories = [
   "Home & Living",
   "Sports & Outdoors",
 ];
+
 const brands = ["Apple", "Samsung", "Nike", "Adidas", "Sony", "LG"];
 
 export function FiltersSideMenu() {
   const [priceRange, setPriceRange] = useState([0, 100000]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
@@ -25,18 +26,19 @@ export function FiltersSideMenu() {
     );
   };
 
-  const handleBrandChange = (brand: string) => {
+  const handleBrandChange = (brand) => {
     setSelectedBrands((prev) =>
-      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+      prev.includes(brand)
+        ? prev.filter((b) => b !== brand)
+        : [...prev, brand]
     );
   };
 
-  const handlePriceChange = (value: number[]) => {
+  const handlePriceChange = (value) => {
     setPriceRange(value);
   };
 
   const handleApplyFilters = () => {
-    // Implement filter application logic here
     console.log("Applying filters:", {
       priceRange,
       selectedCategories,
